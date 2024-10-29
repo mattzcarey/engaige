@@ -20,8 +20,10 @@
     otherInfo: "",
   };
 
+  let loading = false;
   const handleSubmit = async () => {
     try {
+      loading = true;
       const response = await fetch("/api/data", {
         method: "POST",
         headers: {
@@ -31,7 +33,10 @@
       });
 
       const result = await response.json();
-      console.log(result.message);
+      console.log(result);
+      if (!result.key) {
+        throw new Error("No key returned");
+      }
       const url = `/?key=${result.key}`;
       console.log({ url });
       // The redirect function from @sveltejs/kit only works in server-side code
@@ -39,6 +44,8 @@
       window.location.href = url;
     } catch (error) {
       console.error("Error submitting form:", error);
+    } finally {
+      loading = false;
     }
   };
 </script>
@@ -101,7 +108,9 @@
         <Textarea id="otherInfo" bind:value={formData.otherInfo} rows={3} />
       </div>
 
-      <Button type="submit" class="w-full">Submit</Button>
+      <Button type="submit" class="" disabled={loading}>
+        {loading ? "Loading..." : "Submit"}
+      </Button>
     </form>
   </Card>
 </div>
