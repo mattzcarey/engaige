@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { GeneratedContent, Testimonial, Feature } from "$lib/types";
   import { onMount } from "svelte";
+  import { page } from "$app/stores";
 
   let hero = "AI-Powered Solutions for Tomorrow's Challenges";
   let description =
@@ -38,7 +39,9 @@
 
   onMount(async () => {
     try {
-      const response = await fetch("/api/copy");
+      // get the key search param from the page store
+      const key = $page.url.searchParams.get("key");
+      const response = await fetch(`/api/copy?key=${key}`);
       const data = (await response.json()) as GeneratedContent;
 
       hero = data.hero || hero;
