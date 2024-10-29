@@ -14,9 +14,17 @@ interface Testimonial {
 }
 
 interface Feature {
+  icon: string;
   title: string;
   description: string;
-  icon: string; // simple svg icon
 }
 
-export type { Feature, GeneratedContent, Testimonial };
+interface User {
+  name: string;
+  relation: string;
+  company: string;
+  jobTitle: string;
+  otherInfo: string;
+}
+
+export type { Feature, GeneratedContent, Testimonial, User };
