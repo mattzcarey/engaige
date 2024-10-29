@@ -1,12 +1,12 @@
 <script lang="ts">
-  import type { GeneratedContent, Testimonial } from "$lib/types";
+  import type { GeneratedContent, Testimonial, Feature } from "$lib/types";
   import { onMount } from "svelte";
 
   let hero = "AI-Powered Solutions for Tomorrow's Challenges";
   let description =
     "Leverage cutting-edge artificial intelligence to transform your business operations and unlock new possibilities.";
   let cta = "Start Your AI Journey";
-  let features: Array<{ title: string; description: string; icon: string }> = [
+  let features: Array<Feature> = [
     {
       title: "Lightning Fast",
       description: "Experience AI-powered results in milliseconds",
@@ -36,20 +36,20 @@
     },
   ];
 
-  // onMount(async () => {
-  //   try {
-  //     const response = await fetch("/api/copy");
-  //     const data = (await response.json()) as GeneratedContent;
+  onMount(async () => {
+    try {
+      const response = await fetch("/api/copy");
+      const data = (await response.json()) as GeneratedContent;
 
-  //     hero = data.hero || hero;
-  //     description = data.description || description;
-  //     cta = data.cta || cta;
-  //     features = data.features || features;
-  //     testimonials = data.testimonials || testimonials;
-  //   } catch (error) {
-  //     console.error("Error fetching data:", error);
-  //   }
-  // });
+      hero = data.hero || hero;
+      description = data.description || description;
+      cta = data.cta || cta;
+      features = data.features || features;
+      testimonials = data.testimonials || testimonials;
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  });
 </script>
 
 <svelte:head>

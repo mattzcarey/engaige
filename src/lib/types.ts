@@ -16,6 +16,7 @@ interface Testimonial {
 interface Feature {
   title: string;
   description: string;
+  icon: string; // simple svg icon
 }
 
 export type { Feature, GeneratedContent, Testimonial };
