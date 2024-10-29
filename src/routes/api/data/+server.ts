@@ -1,4 +1,4 @@
-import type { Testimonial } from "$lib/types";
+import type { Feature, GeneratedContent, Testimonial } from "$lib/types";
 import { json } from "@sveltejs/kit";
 import { sql } from "@vercel/postgres";
 import type { RequestHandler } from "./$types";
@@ -18,7 +18,7 @@ export const POST: RequestHandler = async ({ request }) => {
 
     const { name, relation, company, jobTitle, otherInfo } = formData;
 
-    // Save this data to postgres
+    // save the user data to the database
     await sql`
       INSERT INTO users (name, relation, company, job_title, other_info)
       VALUES (${name}, ${relation}, ${company}, ${jobTitle}, ${otherInfo})
@@ -29,14 +29,8 @@ export const POST: RequestHandler = async ({ request }) => {
     const description = "Generated description content";
     const cta = "Generated CTA content";
 
-    // Generate a UUID
+    // Generate a tiny key
     const key = generateTinyKey();
-
-    // Save this copy data to postgres under the uuid key
-    await sql`
-      INSERT INTO generated_content (key, hero, description, cta)
-      VALUES (${key}, ${hero}, ${description}, ${cta})
-    `;
 
     // Generate testimonials (placeholder for now)
     const testimonials: Testimonial[] = [
@@ -44,13 +38,26 @@ export const POST: RequestHandler = async ({ request }) => {
       { name: "Jane Smith", jobtitle: "Designer", message: "Awesome service!" },
     ];
 
-    // Save the testimonials array to postgres under the uuid key
-    for (const testimonial of testimonials) {
-      await sql`
-        INSERT INTO testimonials (content_key, name, jobtitle, message)
-        VALUES (${key}, ${testimonial.name}, ${testimonial.jobtitle}, ${testimonial.message})
-      `;
-    }
+    const features: Feature[] = [
+      { title: "Feature 1", description: "Description 1" },
+      { title: "Feature 2", description: "Description 2" },
+    ];
+
+    // Create the content object
+    const content: GeneratedContent = {
+      key,
+      hero,
+      description,
+      cta,
+      testimonials,
+      features,
+    };
+
+    // Save the entire content object as a JSON blob
+    await sql`
+      INSERT INTO content_blobs (key, content)
+      VALUES (${key}, ${JSON.stringify(content)})
+    `;
 
     return json({ success: true, message: "Data saved successfully", key });
   } catch (error) {

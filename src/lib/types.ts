@@ -4,6 +4,7 @@ interface GeneratedContent {
   description: string;
   cta: string;
   testimonials: Testimonial[];
+  features: Feature[];
 }
 
 interface Testimonial {
@@ -12,4 +13,9 @@ interface Testimonial {
   message: string;
 }
 
-export type { GeneratedContent, Testimonial };
+interface Feature {
+  title: string;
+  description: string;
+}
+
+export type { Feature, GeneratedContent, Testimonial };
