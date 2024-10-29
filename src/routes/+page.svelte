@@ -81,6 +81,9 @@
         {description}
       </p>
       <button
+        onclick={() => {
+          window.location.href = "/setup";
+        }}
         class="bg-white text-indigo-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-opacity-90 transform hover:scale-105 transition-all duration-200"
       >
         {cta}
@@ -147,6 +150,9 @@
       solutions.
     </p>
     <button
+      onclick={() => {
+        window.location.href = "/setup";
+      }}
       class="bg-white text-indigo-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-opacity-90 transform hover:scale-105 transition-all duration-200"
     >
       Get Started Free
