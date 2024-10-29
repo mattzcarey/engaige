@@ -1,13 +1,15 @@
+import type { Testimonial } from "$lib/types";
 import { json } from "@sveltejs/kit";
 import { sql } from "@vercel/postgres";
-import { randomUUID } from "crypto";
 import type { RequestHandler } from "./$types";
 
-interface Testimonial {
-  name: string;
-  jobtitle: string;
-  message: string;
-}
+const generateTinyKey = (): string => {
+  const characters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  return Array.from({ length: 4 }, () =>
+    characters.charAt(Math.floor(Math.random() * characters.length))
+  ).join("");
+};
 
 export const POST: RequestHandler = async ({ request }) => {
   console.log("got_here");
@@ -28,7 +30,7 @@ export const POST: RequestHandler = async ({ request }) => {
     const cta = "Generated CTA content";
 
     // Generate a UUID
-    const key = randomUUID();
+    const key = generateTinyKey();
 
     // Save this copy data to postgres under the uuid key
     await sql`
