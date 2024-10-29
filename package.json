@@ -1,22 +1,39 @@
 {
-	"name": "hack-the-people",
-	"version": "0.0.1",
-	"scripts": {
-		"deploy": "wrangler deploy",
-		"dev": "wrangler dev"
-	},
-	"devDependencies": {
-		"@cloudflare/workers-types": "^4.20241022.0",
-		"typescript": "^5.0.4",
-		"wrangler": "^3.83.0"
-	},
-	"packageManager": "pnpm@9.1.4",
-	"engines": {
-		"pnpm": "^9.1.4"
-	},
-	"pnpm": {
-		"overrides": {
-			"esbuild": "0.21.4"
-		}
-	}
+  "name": "engaige",
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-auto": "^3.0.0",
+    "@sveltejs/kit": "^2.0.0",
+    "@sveltejs/vite-plugin-svelte": "^4.0.0",
+    "autoprefixer": "^10.4.20",
+    "bits-ui": "^0.21.16",
+		"@tailwindcss/typography": "^0.5.14",
+		"@types/eslint": "^8.56.7",
+    "clsx": "^2.1.1",
+    "postcss": "^8.4.47",
+    "svelte": "^5.0.0",
+    "svelte-check": "^4.0.0",
+		"eslint": "^9.0.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-svelte": "^2.36.0",
+    "tailwind-merge": "^2.5.4",
+    "tailwind-variants": "^0.2.1",
+    "prettier": "^3.1.1",
+    "prettier-plugin-svelte": "^3.1.2",
+    "prettier-plugin-tailwindcss": "^0.6.5",
+    "typescript": "^5.0.0",
+    "vite": "^5.0.3",
+		"tailwindcss": "^3.4.9",
+		"tslib": "^2.4.1",
+		"typescript-eslint": "^8.0.0-alpha.20",
+		"vitest": "^1.2.0"
+  }
 }

@@ -1,81 +1,38 @@
-# Cloudflare Workflows
+# sv
 
-This is the starter template for Workflows, a durable execution engine built on top of Cloudflare Workers.
+Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
 
-* Clone this repository to get started with Workflows
-* Read the [Workflows announcement blog](https://blog.cloudflare.com/building-workflows-durable-execution-on-workers/) to learn more about what Workflows is and how to build durable, multi-step applications using the Workflows model.
-* Review the [Workflows developer documentation](https://developers.cloudflare.com/workflows/) to dive deeper into the Workflows API and how it works.
+## Creating a project
 
-## Usage
+If you're seeing this, you've probably already done this step. Congrats!
 
-**Visit the [get started guide](https://developers.cloudflare.com/workflows/get-started/guide/) for Workflows to create and deploy your first Workflow.**
+```bash
+# create a new project in the current directory
+npx sv create
 
-### Example
-
-You can create a project using this template by using `npm create cloudflare@latest`:
-
-```sh
-npm create cloudflare@latest workflows-starter -- --template "cloudflare/workflows-starter"
+# create a new project in my-app
+npx sv create my-app
 ```
 
-This will automatically clone this repository, install the dependencies, and prompt you to optionally deploy:
+## Developing
 
-```sh
-╭ Create an application with Cloudflare Step 1 of 3
-│
-├ In which directory do you want to create your application?
-│ dir ./workflows-tutorial
-│
-├ What would you like to start with?
-│ category Template from a GitHub repo
-│
-├ What's the url of git repo containing the template you'd like to use?
-│ repository cloudflare/workflows-starter
-│
-├ Cloning template from: cloudflare/workflows-starter
-│
-├ template cloned and validated
-│
-├ Copying template files
-│ files copied to project directory
-│
-├ Installing dependencies
-│ installed via `npm install`
-│
-╰ Application created
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
-╭ Configuring your application for Cloudflare Step 2 of 3
-│
-├ Installing @cloudflare/workers-types
-│ installed via npm
-│
-├ Adding latest types to `tsconfig.json`
-│ added @cloudflare/workers-types/2023-07-01
-│
-├ Do you want to use git for version control?
-│ yes git
-│
-├ Initializing git repo
-│ initialized git
-│
-├ Committing new files
-│ git commit
-│
-╰ Application configured
+```bash
+npm run dev
 
-╭ Deploy with Cloudflare Step 3 of 3
-│
-├ Do you want to deploy your application?
-│ no deploy via `npm run deploy`
-│
-╰ Done
-
-────────────────────────────────────────────────────────────
-🎉  SUCCESS  Application created successfully!
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
 ```
 
-The [Workflows documentation](https://developers.cloudflare.com/workflows/) contains examples, the API reference, and architecture guidance.
+## Building
 
-## License
+To create a production version of your app:
 
-Copyright 2024, Cloudflare. Apache 2.0 licensed. See the LICENSE file for details.
+```bash
+npm run build
+```
+
+You can preview the production build with `npm run preview`.
+
+> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
