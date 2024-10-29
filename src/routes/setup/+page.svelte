@@ -56,40 +56,63 @@
 
 <div class="container mx-auto p-4">
   <Card class="p-6">
-    <h1 class="text-2xl font-bold mb-4">User Information Form</h1>
-    <form on:submit|preventDefault={handleSubmit} class="space-y-4">
+    <h1 class="text-2xl font-bold mb-4">Proof-of-concept input form</h1>
+    <p>
+      To show you how we would customise our very own homepage with AI, enter
+      some example details below!
+    </p>
+    <p class="text-sm text-gray-500">
+      Coming soon - spreadsheet / external API connection!
+    </p>
+    <form on:submit|preventDefault={handleSubmit} class="space-y-4 mt-8">
       <div>
-        <label for="name" class="block text-sm font-medium text-gray-700"
-          >Name</label
+        <label for="name" class="block text-sm font-medium text-gray-700">
+          Name</label
         >
         <Input type="text" id="name" bind:value={formData.name} />
       </div>
 
       <div>
-        <label for="relation" class="block text-sm font-medium text-gray-700"
-          >Relation</label
+        <label for="relation" class="block text-sm font-medium text-gray-700">
+          Relation / How you met</label
         >
-        <Input type="text" id="relation" bind:value={formData.relation} />
+        <Input
+          type="text"
+          id="relation"
+          bind:value={formData.relation}
+          required
+        />
       </div>
 
       <div>
-        <label for="company" class="block text-sm font-medium text-gray-700"
-          >Company</label
+        <label for="company" class="block text-sm font-medium text-gray-700">
+          Company Name</label
         >
-        <Input type="text" id="company" bind:value={formData.company} />
+        <Input
+          type="text"
+          id="company"
+          bind:value={formData.company}
+          required
+        />
       </div>
 
       <div>
-        <label for="jobTitle" class="block text-sm font-medium text-gray-700"
-          >Job Title</label
-        >
-        <Input type="text" id="jobTitle" bind:value={formData.jobTitle} />
+        <label for="jobTitle" class="block text-sm font-medium text-gray-700">
+          Job Title
+        </label>
+        <Input
+          type="text"
+          id="jobTitle"
+          bind:value={formData.jobTitle}
+          required
+        />
       </div>
 
       <div>
-        <label for="otherInfo" class="block text-sm font-medium text-gray-700"
-          >Other Information</label
+        <label for="otherInfo" class="block text-sm font-medium text-gray-700">
+          Other Information, conversation notes etc.</label
         >
+
         <Textarea id="otherInfo" bind:value={formData.otherInfo} rows={3} />
       </div>
 
