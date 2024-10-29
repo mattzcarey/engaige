@@ -12,7 +12,9 @@ const client = Instructor({
   mode: "TOOLS",
 });
 
-const copyPrompt = `You are tasked with creating a customized website hero section, description, and call to action for a warm lead conversion tool. This tool specializes in personalizing websites to attract and convert users effectively. Your goal is to create compelling content based on the provided user information.
+const copyPrompt = `You are tasked with creating a customized website copy for a startup called Engaige. Engaige is a warm lead conversion tool. It is a tool which specializes in personalizing websites to attract and convert users effectively. 
+
+Write the hero section, description, and call to action for the Engaige website. Your goal is to create compelling content based on the provided user information.
 
 First, carefully review the user information provided.
 
@@ -21,10 +23,10 @@ Analyze the given information, paying close attention to the user's name, job ti
 Now, follow these steps to create personalized content:
 
 1. Hero Section:
-   Create a brief, attention-grabbing hero headline that speaks directly to the user's role and industry. Incorporate their name or company name if appropriate. The hero should be no longer than one sentence.
+   Create a brief, punchy, 6-8 word attention-grabbing hero headline that speaks directly to the user based on their role and industry. Include our company name Engaige in the hero.
 
 2. Description:
-   Write a concise description (2-3 sentences) that elaborates on how the warm lead conversion tool can benefit the user's specific situation. Reference their job title, company, or industry to make it more relevant.
+   Write a concise description (2 sentences) that elaborates on how Engaige, the warm lead conversion tool, can benefit the user's specific situation. Make a pun or reference the user's name or company name. You should speak directly to the user.
 
 3. Call to Action (CTA):
    Craft a compelling CTA that encourages the user to take the next step. This should be a short, action-oriented phrase that relates to their professional goals or pain points.
@@ -37,7 +39,9 @@ When creating this content, keep the following guidelines in mind:
 
 Also generate 3 features and 3 testimonials for the product.
 
-For the features, think about what makes the product unique and how it can benefit the user. Make sure to generate a svg icon for each feature.
+For the features, think about what makes the product unique and how it can benefit the user. Make sure to generate a unique svg icon for each feature.
+
+The Testimonials should be from happy customers who have seen the benefits of using Engaige. They should be from job titles similar to the user's job title and similar industry.
 
 Ensure that each element is tailored to the user based on the provided information, creating a personalized experience that will resonate with them and increase the likelihood of conversion.`;
 
