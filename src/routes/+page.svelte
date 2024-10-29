@@ -120,7 +120,10 @@
             <div
               class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 font-bold"
             >
-              {testimonial.name[0]}
+              {testimonial.name
+                .split(" ")
+                .map((n) => n[0])
+                .join("")}
             </div>
             <div class="ml-4">
               <p class="font-bold">{testimonial.name}</p>
