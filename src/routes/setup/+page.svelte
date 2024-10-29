@@ -28,7 +28,13 @@
     console.log("Form submitted:", formData);
     // Here you would typically send the data to a server or perform other actions
   };
+
+  
 </script>
+
+<svelte:head>
+  <title>EnGaige - Setup - User Information</title>
+</svelte:head>
 
 <div class="container mx-auto p-4">
   <Card class="p-6">
@@ -68,7 +74,7 @@
         <Textarea
           id="personalInfo"
           bind:value={formData.personalInfo}
-          rows="3"
+          rows={3}
         />
       </div>
 
@@ -76,21 +82,21 @@
         <label for="wants" class="block text-sm font-medium text-gray-700"
           >Wants</label
         >
-        <Textarea id="wants" bind:value={formData.wants} rows="2" />
+        <Textarea id="wants" bind:value={formData.wants} rows={2} />
       </div>
 
       <div>
         <label for="needs" class="block text-sm font-medium text-gray-700"
           >Needs</label
         >
-        <Textarea id="needs" bind:value={formData.needs} rows="2" />
+        <Textarea id="needs" bind:value={formData.needs} rows={2} />
       </div>
 
       <div>
         <label for="desires" class="block text-sm font-medium text-gray-700"
           >Desires</label
         >
-        <Textarea id="desires" bind:value={formData.desires} rows="2" />
+        <Textarea id="desires" bind:value={formData.desires} rows={2} />
       </div>
 
       <Button type="submit" class="w-full">Submit</Button>
