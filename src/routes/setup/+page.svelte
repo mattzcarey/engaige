@@ -62,43 +62,28 @@
         <label for="name" class="block text-sm font-medium text-gray-700"
           >Name</label
         >
-        <Input type="text" id="name" bind:value={formData.name} required />
+        <Input type="text" id="name" bind:value={formData.name} />
       </div>
 
       <div>
         <label for="relation" class="block text-sm font-medium text-gray-700"
           >Relation</label
         >
-        <Input
-          type="text"
-          id="relation"
-          bind:value={formData.relation}
-          required
-        />
+        <Input type="text" id="relation" bind:value={formData.relation} />
       </div>
 
       <div>
         <label for="company" class="block text-sm font-medium text-gray-700"
           >Company</label
         >
-        <Input
-          type="text"
-          id="company"
-          bind:value={formData.company}
-          required
-        />
+        <Input type="text" id="company" bind:value={formData.company} />
       </div>
 
       <div>
         <label for="jobTitle" class="block text-sm font-medium text-gray-700"
           >Job Title</label
         >
-        <Input
-          type="text"
-          id="jobTitle"
-          bind:value={formData.jobTitle}
-          required
-        />
+        <Input type="text" id="jobTitle" bind:value={formData.jobTitle} />
       </div>
 
       <div>
