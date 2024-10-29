@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { Button } from "$lib/components/ui/button";
-  import { Card } from "$lib/components/ui/card";
-  import { Input } from "$lib/components/ui/input";
-  import { Textarea } from "$lib/components/ui/textarea";
+  import { Button } from "$lib/ui/button";
+  import { Card } from "$lib/ui/card";
+  import { Input } from "$lib/ui/input";
+  import { Textarea } from "$lib/ui/textarea";
 
   type FormData = {
     name: string;
