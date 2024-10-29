@@ -7,21 +7,30 @@
   let description =
     "Leverage cutting-edge artificial intelligence to transform your business operations and unlock new possibilities.";
   let cta = "Start Your AI Journey";
+  const demoIcon1 = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+  </svg>`;
+  const demoIcon2 = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+  </svg>`;
+  const demoIcon3 = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+  </svg>`;
   let features: Array<Feature> = [
     {
       title: "Lightning Fast",
       description: "Experience AI-powered results in milliseconds",
-      icon: "M13 10V3L4 14h7v7l9-11h-7z",
+      icon: demoIcon1,
     },
     {
       title: "Secure & Private",
       description: "Enterprise-grade security for your peace of mind",
-      icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
+      icon: demoIcon2,
     },
     {
       title: "Scalable",
       description: "Grows with your business needs seamlessly",
-      icon: "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6",
+      icon: demoIcon3,
     },
   ];
   let testimonials: Array<Testimonial> = [
@@ -88,19 +97,7 @@
         class="p-6 rounded-xl bg-white shadow-xl hover:shadow-2xl transition-shadow"
       >
         <div class="text-indigo-600 mb-4">
-          <svg
-            class="w-12 h-12"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d={feature.icon}
-            />
-          </svg>
+          {@html feature.icon}
         </div>
         <h3 class="text-xl font-bold mb-2">{feature.title}</h3>
         <p class="text-gray-600">{feature.description}</p>
