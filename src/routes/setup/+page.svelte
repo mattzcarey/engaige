@@ -32,10 +32,13 @@
 
       const result = await response.json();
       console.log(result.message);
-      // You might want to handle the response, e.g., show a success message
+      const url = `/?key=${result.key}`;
+      console.log({ url });
+      // The redirect function from @sveltejs/kit only works in server-side code
+      // For client-side navigation, we need to use window.location
+      window.location.href = url;
     } catch (error) {
       console.error("Error submitting form:", error);
-      // Handle the error, e.g., show an error message to the user
     }
   };
 </script>
