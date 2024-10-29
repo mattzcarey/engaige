@@ -37,7 +37,7 @@ When creating this content, keep the following guidelines in mind:
 - Use language that resonates with their level of expertise
 - Be concise and impactful
 
-Also generate 3 features and 3 testimonials for the product.
+Also generate 3 features and 4 testimonials for the product.
 
 For the features, think about what makes the product unique and how it can benefit the user. Make sure to generate a unique svg icon for each feature.
 
@@ -56,7 +56,10 @@ const CopySchema = z.object({
   features: z
     .array(
       z.object({
-        icon: z.string().describe("A svg icon for the feature"),
+        icon: z.string().describe(
+          `A svg icon for the feature. Here is an example of a good icon:<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>`
+        ),
         title: z.string().describe("A title of a feature"),
         description: z.string().describe("A description of a feature"),
       })
