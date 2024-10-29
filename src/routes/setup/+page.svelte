@@ -6,30 +6,38 @@
 
   type FormData = {
     name: string;
-    age: number;
+    relation: string;
+    company: string;
     jobTitle: string;
-    personalInfo: string;
-    wants: string;
-    needs: string;
-    desires: string;
+    otherInfo: string;
   };
 
   let formData: FormData = {
     name: "",
-    age: 0,
+    relation: "",
+    company: "",
     jobTitle: "",
-    personalInfo: "",
-    wants: "",
-    needs: "",
-    desires: "",
+    otherInfo: "",
   };
 
-  const handleSubmit = (): void => {
-    console.log("Form submitted:", formData);
-    // Here you would typically send the data to a server or perform other actions
-  };
+  const handleSubmit = async () => {
+    try {
+      const response = await fetch("/api/data", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-  
+      const result = await response.json();
+      console.log(result.message);
+      // You might want to handle the response, e.g., show a success message
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      // Handle the error, e.g., show an error message to the user
+    }
+  };
 </script>
 
 <svelte:head>
@@ -48,10 +56,27 @@
       </div>
 
       <div>
-        <label for="age" class="block text-sm font-medium text-gray-700"
-          >Age</label
+        <label for="relation" class="block text-sm font-medium text-gray-700"
+          >Relation</label
         >
-        <Input type="number" id="age" bind:value={formData.age} required />
+        <Input
+          type="text"
+          id="relation"
+          bind:value={formData.relation}
+          required
+        />
+      </div>
+
+      <div>
+        <label for="company" class="block text-sm font-medium text-gray-700"
+          >Company</label
+        >
+        <Input
+          type="text"
+          id="company"
+          bind:value={formData.company}
+          required
+        />
       </div>
 
       <div>
@@ -67,36 +92,10 @@
       </div>
 
       <div>
-        <label
-          for="personalInfo"
-          class="block text-sm font-medium text-gray-700">Personal Info</label
+        <label for="otherInfo" class="block text-sm font-medium text-gray-700"
+          >Other Information</label
         >
-        <Textarea
-          id="personalInfo"
-          bind:value={formData.personalInfo}
-          rows={3}
-        />
-      </div>
-
-      <div>
-        <label for="wants" class="block text-sm font-medium text-gray-700"
-          >Wants</label
-        >
-        <Textarea id="wants" bind:value={formData.wants} rows={2} />
-      </div>
-
-      <div>
-        <label for="needs" class="block text-sm font-medium text-gray-700"
-          >Needs</label
-        >
-        <Textarea id="needs" bind:value={formData.needs} rows={2} />
-      </div>
-
-      <div>
-        <label for="desires" class="block text-sm font-medium text-gray-700"
-          >Desires</label
-        >
-        <Textarea id="desires" bind:value={formData.desires} rows={2} />
+        <Textarea id="otherInfo" bind:value={formData.otherInfo} rows={3} />
       </div>
 
       <Button type="submit" class="w-full">Submit</Button>

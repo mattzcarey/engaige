@@ -6,13 +6,12 @@ export const POST: RequestHandler = async ({ request }) => {
   try {
     const formData = await request.json();
 
-    // Assuming the form data has 'name' and 'email' fields
-    const { name, email, company, jobTitle, personalInfo } = formData;
+    const { name, relation, company, jobTitle, otherInfo } = formData;
 
     // Insert the data into the database
     await sql`
-      INSERT INTO users (name, email, company, jobTitle, personalInfo)
-      VALUES (${name}, ${email}, ${company}, ${jobTitle}, ${personalInfo})
+      INSERT INTO users (name, relation, company, job_title, other_info)
+      VALUES (${name}, ${relation}, ${company}, ${jobTitle}, ${otherInfo})
     `;
 
     return json({ success: true, message: "Data saved successfully" });
