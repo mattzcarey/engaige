@@ -3,9 +3,9 @@
   import { onMount } from "svelte";
   import { page } from "$app/stores";
 
-  let hero = "AI-Powered Solutions for Tomorrow's Challenges";
+  let hero = "Engaige your warm leads with AI";
   let description =
-    "Leverage cutting-edge artificial intelligence to transform your business operations and unlock new possibilities.";
+    "Leverage cutting-edge artificial intelligence to get your sales pipeline cooking - fully personalized and automated website customisation.";
   let cta = "Start Your AI Journey";
   const demoIcon1 = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
