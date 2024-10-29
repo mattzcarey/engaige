@@ -1,5 +1,5 @@
 <svelte:head>
-  <title>EnGaige - Setup - User Information</title>
+  <title>EnGaige - Home</title>
 </svelte:head>
 
 <div class="container mx-auto p-4">
